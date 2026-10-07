@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>کاشی‌های ایران | مطالعات اجتماعی هفتم</title>
+<style>
+:root{
+  --ink:#18313b;--paper:#fffaf0;--cream:#f4ead5;--teal:#167d7f;--teal2:#0e5f63;
+  --gold:#d39b3f;--red:#b84b3b;--green:#2f8f63;--blue:#376f9e;--shadow:0 12px 35px #17313b22;
+}
+*{box-sizing:border-box} body{margin:0;font-family:Tahoma,"Vazirmatn",Arial,sans-serif;background:
+radial-gradient(circle at 20% 10%,#fff 0 5%,transparent 6%),linear-gradient(135deg,#f7efdf,#e8dcc5);
+color:var(--ink);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.11;background-image:
+linear-gradient(45deg,transparent 46%,var(--teal) 47%,var(--teal) 53%,transparent 54%),
+linear-gradient(-45deg,transparent 46%,var(--gold) 47%,var(--gold) 53%,transparent 54%);background-size:34px 34px}
+.wrap{max-width:1180px;margin:auto;padding:22px}
+.panel{background:#fffdf8ee;border:2px solid #d7c59f;border-radius:26px;box-shadow:var(--shadow);backdrop-filter:blur(5px)}
+.start{max-width:820px;margin:30px auto;padding:30px}
+.logo{width:90px;height:90px;margin:0 auto 12px;border-radius:24px;background:conic-gradient(from 45deg,var(--teal),#e9c875,var(--red),var(--teal));display:grid;place-items:center;box-shadow:0 8px 20px #0002}
+.logo span{width:54px;height:54px;background:var(--paper);transform:rotate(45deg);display:grid;place-items:center}.logo b{transform:rotate(-45deg);font-size:28px}
+h1{font-size:clamp(28px,5vw,48px);text-align:center;margin:8px 0;color:var(--teal2)}
+.subtitle{text-align:center;color:#66757b;margin:0 0 25px}
+.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.meta .full{grid-column:1/-1}.field{display:flex;flex-direction:column;gap:6px}
+label{font-weight:700;font-size:14px}.value,input{width:100%;border:1px solid #d7c8aa;border-radius:13px;padding:11px 12px;background:#fff;font:inherit;color:var(--ink)}
+input:focus{outline:3px solid #167d7f22;border-color:var(--teal)}
+.startbtn,.btn{border:0;border-radius:15px;padding:13px 18px;font:inherit;font-weight:800;cursor:pointer;transition:.2s}
+.startbtn{display:block;width:100%;margin-top:20px;background:var(--teal);color:#fff;font-size:18px}.startbtn:hover,.btn:hover{transform:translateY(-2px)}
+.notice{margin-top:15px;background:#f7f0df;border-right:5px solid var(--gold);padding:12px;border-radius:12px;font-size:13px;line-height:1.9}
+.hidden{display:none!important}
+.game{padding:18px}
+.top{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin-bottom:15px}
+.brand h2{margin:0;color:var(--teal2)}.brand small{color:#6e7777}
+.stats{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start}
+.stat{background:#fff;border:1px solid #ddcfb5;border-radius:14px;padding:8px 12px;font-weight:800;box-shadow:0 3px 8px #0000000a}
+.progress{height:12px;background:#e5dccb;border-radius:20px;overflow:hidden;margin:10px 0 18px}.bar{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0;transition:.5s}
+.stagehead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.stagehead h3{margin:0;font-size:21px}
+.badges{display:flex;gap:7px;flex-wrap:wrap}.pill{padding:7px 10px;border-radius:20px;background:#edf6f3;font-size:12px;font-weight:800}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;min-height:390px}
+.card{height:145px;perspective:900px;cursor:pointer}.inner{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}.card.open .inner,.card.matched .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:19px;display:flex;align-items:center;justify-content:center;text-align:center;padding:13px}
+.back{background:linear-gradient(135deg,var(--teal2),var(--teal));border:3px solid #e8c875;color:#fff;box-shadow:0 7px 14px #0002}
+.back:after{content:"✦";font-size:42px;opacity:.9}.front{transform:rotateY(180deg);background:var(--paper);border:2px solid #d3bd8f;box-shadow:0 7px 14px #0001}
+.front strong{font-size:17px;line-height:1.7}.type{position:absolute;top:7px;right:9px;font-size:10px;color:#8a7650}
+.matched .front{border-color:var(--green);background:#effaf4;box-shadow:0 0 0 3px #2f8f6322}
+.mosaic{margin-top:18px;padding:15px;border-radius:20px;background:#f0e5d1;border:1px solid #d6c39d}
+.mosaic h4{margin:0 0 9px}.mosaic-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.tile{aspect-ratio:1;background:#d6c8ad;border-radius:6px;display:grid;place-items:center;color:transparent;font-size:20px;transition:.4s}
+.tile.on{color:#fff;background:linear-gradient(135deg,var(--teal),var(--gold));transform:rotate(45deg);border-radius:4px}.tile.on span{transform:rotate(-45deg)}
+.feedback{min-height:44px;margin-top:12px;padding:10px 14px;border-radius:12px;background:#f8f5ee;font-size:14px;line-height:1.8}
+.feedback.good{background:#edf9f1;color:#17633f}.feedback.bad{background:#fff0ed;color:#8e3429}
+.overlay{position:fixed;inset:0;background:#0b2529cc;display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+.result{max-width:760px;width:100%;padding:28px;text-align:center}.result h2{color:var(--teal2);font-size:32px;margin:5px}
+.report{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;text-align:right;margin:18px 0}.report div{background:#f7f0e2;border-radius:12px;padding:10px}.scorebig{font-size:44px;font-weight:900;color:var(--gold)}
+.btn{background:var(--teal);color:#fff;margin:4px}.btn.secondary{background:#e7dcc7;color:var(--ink)}
+.small{font-size:12px;color:#6c7777;line-height:1.8}
+@media(max-width:760px){.meta{grid-template-columns:1fr}.board{grid-template-columns:repeat(3,1fr)}.card{height:125px}.top{grid-template-columns:1fr}.mosaic-grid{grid-template-columns:repeat(6,1fr)}}
+@media(max-width:470px){.wrap{padding:10px}.start,.game{padding:16px}.board{gap:8px}.card{height:115px}.front strong{font-size:14px}.stats{font-size:12px}.report{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section id="start" class="panel start">
+  <div class="logo"><span><b>✦</b></span></div>
+  <h1>کاشی‌های ایران</h1>
+  <p class="subtitle">بازی حافظه و تکمیل تدریجی اثر کاشی‌کاری • مطالعات اجتماعی هفتم</p>
+  <div class="meta">
+    <div class="field"><label>🏺 نام بازی</label><div class="value">کاشی‌های ایران</div></div>
+    <div class="field"><label>🏫 نام مدرسه</label><div class="value">مهر آذین</div></div>
+    <div class="field"><label>📚 نام کتاب</label><div class="value">مطالعات اجتماعی</div></div>
+    <div class="field"><label>📖 نام درس</label><div class="value">درس اول: من حق دارم</div></div>
+    <div class="field"><label>👥 نام کلاس</label><input id="className" placeholder="نام کلاس را وارد کنید"></div>
+    <div class="field"><label>👤 نام آزمون‌دهنده</label><input id="studentName" placeholder="نام و نام خانوادگی"></div>
+    <div class="field full"><label>✏️ نام طراح بازی</label><div class="value">حسن کامران</div></div>
+  </div>
+  <div class="notice">در این بازی فقط از محتوای درس «من حق دارم» استفاده شده است. برای پیدا کردن هر جفت، باید ارتباط مفهومی دو کاشی را تشخیص دهید.</div>
+  <button class="startbtn" onclick="startGame()">شروع بازی و ساخت کاشی‌ها</button>
+</section>
+
+<section id="game" class="panel game hidden">
+  <div class="top">
+    <div class="brand"><h2>کاشی‌های ایران</h2><small id="studentLabel"></small></div>
+    <div class="stats">
+      <div class="stat">⭐ <span id="stars">0</span></div>
+      <div class="stat">🪙 <span id="coins">0</span></div>
+      <div class="stat">🏆 <span id="score">0</span></div>
+      <div class="stat">❤️ <span id="lives">3</span></div>
+    </div>
+  </div>
+  <div class="progress"><div id="bar" class="bar"></div></div>
+  <div class="stagehead">
+    <h3 id="stageTitle"></h3>
+    <div class="badges"><span class="pill" id="stageNo"></span><span class="pill" id="timer"></span><span class="pill" id="moves"></span></div>
+  </div>
+  <div id="board" class="board"></div>
+  <div id="feedback" class="feedback">دو کاشی را انتخاب کن و ارتباط درست میان آن‌ها را پیدا کن. اشتباه فقط امتیاز را کم می‌کند؛ بازی ادامه دارد.</div>
+  <div class="mosaic">
+    <h4>🧿 اثر کاشی‌کاری در حال تکمیل</h4>
+    <div id="mosaic" class="mosaic-grid"></div>
+  </div>
+</section>
+</div>
+<div id="resultOverlay" class="overlay hidden">
+  <div class="panel result">
+    <div class="logo" style="width:70px;height:70px"><span style="width:44px;height:44px"><b style="font-size:21px">✓</b></span></div>
+    <h2>اثر کاشی‌کاری کامل شد!</h2>
+    <div class="scorebig" id="finalScore">0</div>
+    <div id="finalMessage"></div>
+    <div class="report" id="report"></div>
+    <button class="btn" onclick="location.reload()">بازی دوباره</button>
+    <button class="btn secondary" onclick="window.print()">چاپ کارنامه</button>
+  </div>
+</div>
+
+<script>
+const stages=[
+ {title:"کاشی‌های سادهٔ حق", pairs:[
+  ["حق حیات","مهم‌ترین حق انسان؛ همهٔ انسان‌ها حق زندگی دارند."],
+  ["حقوق طبیعی","انسان‌ها از ابتدای خلقت و تولد دارای این حقوق هستند."],
+  ["آزادی","انسان‌ها حق دارند آزاد باشند و برده و بندهٔ انسان‌های دیگر نباشند."],
+  ["نعمت‌های الهی","انسان‌ها حق دارند از نعمت‌های الهی برخوردار شوند."]
+ ]},
+ {title:"کاشی‌های خانواده", pairs:[
+  ["نام و شناسنامه","هر فرد حق دارد نام، نام خانوادگی و شناسنامه داشته باشد."],
+  ["محبت خانواده","فرزندان از محبت و توجه پدر و مادر برخوردارند."],
+  ["تحصیل","همه حق دارند باسواد شوند، تحصیل کنند و استعدادهای خود را شکوفا کنند."],
+  ["غذا، لباس و مسکن","افراد حق دارند غذا، لباس و مسکن مناسب داشته باشند."]
+ ]},
+ {title:"کاشی‌های مدرسه و رفتار", pairs:[
+  ["نظر دانش‌آموز","دانش‌آموز حق دارد دربارهٔ مشکلات درسی یا روش‌های آموزشی مؤدبانه نظر بدهد."],
+  ["تبعیض","دانش‌آموز باید در مدرسه به اندازهٔ سایر دانش‌آموزان مورد توجه قرار گیرد."],
+  ["مسخره کردن","هیچ‌کس حق ندارد دیگری را مسخره کند یا به او صدمه بزند."],
+  ["تذکر صحیح","همه حق دارند دربارهٔ کار اشتباه یا خطرناک، با روش صحیح تذکر دهند."]
+ ]},
+ {title:"کاشی‌های جامعه و مسئولیت", pairs:[
+  ["محیط سالم","هر فرد حق دارد در محیطی سالم، تمیز و پاک زندگی کند."],
+  ["اموال عمومی","ما مسئولیم مراقب اموال عمومی باشیم."],
+  ["آرامش همسایگی","هر فرد حق دارد در محیط همسایگی آرام زندگی کند."],
+  ["امنیت","همه حق دارند در کوچه و خیابان امنیت داشته باشند."]
+ ]},
+ {title:"ایران را با حقوقمان کامل کن", pairs:[
+  ["خدمات پزشکی و بهداشتی","هر فرد حق دارد از خدمات مناسب پزشکی و بهداشتی استفاده کند."],
+  ["سلامت مردم","هیچ کشوری حق ندارد مردم کشورهای دیگر را از داشتن سلامت و خدمات بهداشتی و درمانی محروم کند."],
+  ["همکاری مردم","مؤسسات در کشور با همکاری مردم برای بهداشت، آموزش و امنیت تلاش می‌کنند."],
+  ["روابط اجتماعی","انسان در روابط دائم با دیگران از حقوقی برخوردار می‌شود."]
+ ]}
+];
+
+let stage=0, score=0, stars=0, coins=0, lives=5, moves=0, mistakes=0, correct=0, selected=[], locked=false, seconds=0, timerInt;
+let student="", className="", totalPairs=0;
+
+function startGame(){
+ student=document.getElementById("studentName").value.trim()||"بدون نام";
+ className=document.getElementById("className").value.trim()||"بدون نام";
+ document.getElementById("start").classList.add("hidden");
+ document.getElementById("game").classList.remove("hidden");
+ document.getElementById("studentLabel").textContent="👤 "+student+"  |  👥 "+className;
+ totalPairs=stages.reduce((a,s)=>a+s.pairs.length,0);
+ seconds=0; clearInterval(timerInt); timerInt=setInterval(()=>{seconds++;render()},1000);
+ buildMosaic(); loadStage();
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function loadStage(){
+ selected=[];locked=false;
+ const s=stages[stage]; document.getElementById("stageTitle").textContent=s.title;
+ document.getElementById("stageNo").textContent=`مرحله ${stage+1} از ${stages.length}`;
+ document.getElementById("feedback").className="feedback";
+ document.getElementById("feedback").textContent="دو کاشی را انتخاب کن و ارتباط درست میان آن‌ها را پیدا کن. اشتباه فقط امتیاز را کم می‌کند؛ بازی ادامه دارد.";
+ const cards=[];
+ s.pairs.forEach((p,i)=>{
+   cards.push({id:i,type:"عنوان",text:p[0],pair:i});
+   cards.push({id:i,type:"توضیح",text:p[1],pair:i});
+ });
+ const board=document.getElementById("board"); board.innerHTML="";
+ shuffle(cards).forEach(c=>{
+   const el=document.createElement("div"); el.className="card"; el.dataset.pair=c.pair;
+   el.innerHTML=`<div class="inner"><div class="face back"></div><div class="face front"><span class="type">${c.type}</span><strong>${c.text}</strong></div></div>`;
+   el.onclick=()=>flip(el,c); board.appendChild(el);
+ });
+ render();
+}
+function flip(el,c){
+ if(locked||el.classList.contains("open")||el.classList.contains("matched"))return;
+ el.classList.add("open"); selected.push({el,c});
+ if(selected.length<2)return;
+ moves++; locked=true;
+ const [a,b]=selected;
+ setTimeout(()=>{
+   if(a.c.pair===b.c.pair && a.c.type!==b.c.type){
+     a.el.classList.add("matched"); b.el.classList.add("matched"); correct++;
+     score+=120; coins+=10; stars++;
+     const p=stages[stage].pairs[a.c.pair];
+     feedback(`درست! «${p[0]}» با این توضیح ارتباط دارد: ${p[1]}`,true);
+     revealTile(); revealTile();
+     if(document.querySelectorAll(".card.matched").length===stages[stage].pairs.length*2){
+       setTimeout(nextStage,700);
+     } else {locked=false}
+   }else{
+     a.el.classList.remove("open");b.el.classList.remove("open");mistakes++;lives=Math.max(0,lives-1);
+     score=Math.max(0,score-10); coins=Math.max(0,coins-1);
+     feedback("این دو کاشی ارتباط صحیحی ندارند. کاشی‌ها برمی‌گردند؛ اشتباه فقط کمی از امتیاز و سکه کم می‌کند. ادامه بده!",false);
+     locked=false;
+     
+   }
+   selected=[];render();
+ },650);
+}
+function feedback(t,good){const f=document.getElementById("feedback");f.textContent=t;f.className="feedback "+(good?"good":"bad")}
+function revealTile(){
+ const tiles=[...document.querySelectorAll(".tile:not(.on)")]; if(tiles[0]){tiles[0].classList.add("on");tiles[0].innerHTML="<span>✦</span>"}
+}
+function nextStage(){
+ if(stage<stages.length-1){stage++;lives=Math.min(5,lives+1);loadStage();}
+ else endGame(false);
+}
+function buildMosaic(){document.getElementById("mosaic").innerHTML=Array.from({length:30},(_,i)=>`<div class="tile"><span>✦</span></div>`).join("")}
+function render(){
+ document.getElementById("score").textContent=score;document.getElementById("stars").textContent=stars;
+ document.getElementById("coins").textContent=coins;document.getElementById("lives").textContent=lives;
+ document.getElementById("moves").textContent="حرکت: "+moves;
+ document.getElementById("timer").textContent="زمان: "+formatTime(seconds);
+ const progress=Math.min(100,(correct/totalPairs)*100);document.getElementById("bar").style.width=progress+"%";
+}
+function formatTime(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function endGame(failed){
+ clearInterval(timerInt);
+ const pct=Math.round(correct/totalPairs*100);
+ const level=pct>=90?"عالی!":pct>=70?"خیلی خوب!":pct>=50?"خوب!":"نیاز به تمرین بیشتر";
+ document.getElementById("finalScore").textContent=score;
+ document.getElementById("finalMessage").innerHTML=`<b>${level}</b><br><span class="small">یادگیری این بازی بر پایهٔ متن درس «من حق دارم» انجام شد.</span>`;
+ document.getElementById("report").innerHTML=[
+ ["نام آزمون‌دهنده",student],["نام مدرسه","مهر آذین"],["نام کلاس",className],
+ ["نام کتاب","مطالعات اجتماعی"],["نام درس","درس اول: من حق دارم"],["نام طراح","حسن کامران"],
+ ["امتیاز نهایی",score],["ستاره",stars],["سکه",coins],["درصد موفقیت",pct+"%"],
+ ["جفت‌های صحیح",correct+" از "+totalPairs],["اشتباه‌ها",mistakes],["تعداد حرکات",moves],["زمان",formatTime(seconds)]
+ ].map(x=>`<div><b>${x[0]}:</b> ${x[1]}</div>`).join("");
+ document.getElementById("resultOverlay").classList.remove("hidden");
+}
+</script>
+</body>
+</html>
